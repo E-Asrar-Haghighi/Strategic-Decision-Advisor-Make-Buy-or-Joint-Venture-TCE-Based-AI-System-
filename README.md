@@ -4,7 +4,11 @@ This project implements an AI-powered decision-support system designed to help e
 
 The system allows users to define their strategic business question via a Streamlit interface. It then leverages a pipeline of specialized Python agents, many of which utilize Large Language Models (LLMs) internally (defaulting to `gpt-4o-mini`), to perform analysis and generate a comprehensive recommendation report.
 
-Demo link: https://www.loom.com/share/8ec7755ef7534d4bbce9d26d4493faa6
+## 🎬 Demo
+
+Watch the full system demo here:  
+🔗 [Loom Video Demo](https://www.loom.com/share/8ec7755ef7534d4bbce9d26d4493faa6)
+
 ---
 
 ## 🎯 Purpose & Key Questions Answered
