@@ -1,0 +1,6 @@
+Should our company develop the AI customer insights platform internally, outsource development to a third-party vendor, or form a strategic partnership/joint venture with a specialized AI firm?"
+This system will help analyze the decision by considering key factors such as:
+Asset Specificity: The platform will require customization for our proprietary datasets, internal customer segmentation models, and business logic.
+Transaction Frequency: Frequent updates and model retraining will be needed to adapt to evolving customer behavior.
+Uncertainty: High technical and market uncertainty exists, especially related to evolving AI capabilities and regulatory standards.
+Partner Trust: We have a strong existing relationship with one potential partner but limited experience with other vendors.

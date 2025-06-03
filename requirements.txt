@@ -1,0 +1,12 @@
+# Core Application & UI
+streamlit>=1.28.0
+python-dotenv>=0.21.0  # For loading .env files
+
+# AI & Agent Framework
+crewai>=0.28.0
+# crewai-tools>=0.1.0  # Optional: if you plan to use standard CrewAI tools
+openai>=1.3.0         # For interacting with OpenAI LLMs (used by crewai.llms.OpenAI)
+
+# Configuration & Utilities
+pyyaml>=6.0             # For YAML file processing (if crew_config.yaml becomes active)
+# markdown2>=2.4.0      # Optional: Only if you actually use it for Markdown to HTML conversion

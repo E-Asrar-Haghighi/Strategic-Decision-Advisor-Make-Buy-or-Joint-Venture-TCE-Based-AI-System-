@@ -1,0 +1,56 @@
+
+# crew_config.yaml
+
+# Overview:
+# This AI-powered Strategic Transaction Advisor guides decision-makers in choosing between strategies
+# like internal expansion, outsourcing, acquisition, or joint ventures. The user first defines a business
+# objective (e.g., whether to outsource or build in-house) and assigns probabilities to eight possible
+# future scenarios—based on combinations of market demand, volatility, and partner reliability—through
+# an interactive Streamlit interface. Once these probabilities are submitted, the system evaluates each
+# scenario using Coase and Williamson’s transaction cost economics, determines the optimal strategy per
+# case, and aggregates the results into a final recommendation weighted by likelihood. Finally, a GPT-powered
+# agent generates an executive-friendly summary explaining the chosen strategy, and a full report is
+# automatically created for review or distribution.
+
+# --- Global LLM Config (Example) ---
+# llm_default:
+#   provider: openai
+#   model: gpt-4o-mini
+#   # api_key: ${OPENAI_API_KEY} # Loaded from environment
+
+# --- Agent Definitions ---
+agents:
+  - role: "Business Analyst" # Role is primary identifier
+    goal: "Understand the business capability under consideration and extract key factors."
+    backstory: "You specialize in gathering context for strategic decisions."
+    # llm: (can use default or override)
+    # tools: [context_extraction_tool] # If using custom tools
+    verbose: true
+
+  # ... other agent definitions similar to yours, adding llm/tools as needed ...
+
+  - role: "Strategy Evaluator"
+    goal: "Apply Coase and Williamson logic to recommend strategies per scenario."
+    backstory: "You assess transaction costs and suggest make/buy/JV decisions."
+    verbose: true
+
+# --- Task Definitions ---
+tasks:
+  - description: "Analyze the initial problem statement: '{initial_task_description}' and extract asset specificity, frequency, and uncertainty."
+    agent: "Business Analyst" # Assign by role
+    expected_output: "A structured dictionary of extracted factors."
+
+  - description: "For each of the defined scenarios {scenarios_list} with their probabilities {scenario_probabilities}, evaluate strategic options (Internal, JV, Outsourcing, Acquisition) using Transaction Cost Economics, considering factors like {asset_specificity}, {frequency}, and {uncertainty}."
+    agent: "Strategy Evaluator"
+    context_tasks: # Define dependencies if tasks depend on output of others
+      - "Analyze the initial problem statement..." # Reference previous task by its description or a unique ID
+    expected_output: "A detailed report or JSON object with scores for each strategy under each scenario."
+
+  # ... other task definitions ...
+
+# --- Crew Definition (more Python-centric usually) ---
+# crew:
+#   type: "sequential" # or "hierarchical"
+#   verbose_level: 2
+#   # memory_enabled: true
+#   # manager_llm: (if hierarchical)

@@ -1,0 +1,123 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib60/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+# Usually these files are written by a CI script PyInstaller dists
+# out to dist/ and build/ then downloads them from CI server
+# If you run PyInstaller locally, make sure to add these paths to .gitignore and change them
+# to your specific paths PyInstaller writes to.
+# *.spec
+# **/output/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.nfo
+.hypothesis/
+.pytest_cache/
+
+# Flake8 caching
+.flake8
+
+# MyPy caching
+.mypy_cache/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Editor specific backup files
+*.bak
+*.swp
+*.swo
+*~
+
+# Environment variables - CRITICAL: Never commit .env files with secrets
+.env
+*.env
+.env.*
+!*.env.example # Commit example/template .env files
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.env/ # Directory, not the .env file
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Specific output files from this project (runtime generated)
+*.log
+output_summary.json
+report.md
+# run.log is covered by *.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# --- Project Specific ---
+
+# Documentation - This example ignores all .md except README.md in root.
+# Adjust if you have other important markdown files.
+# *.md
+# !README.md
+
+# If you have other important .md files or a docs/ folder, be more specific:
+# e.g., ignore generated docs but not hand-written ones.
+# docs/_build/
+# Or, if all .md files in root are to be committed, remove markdown rules.
+
+# Add other project-specific ignores here if any.

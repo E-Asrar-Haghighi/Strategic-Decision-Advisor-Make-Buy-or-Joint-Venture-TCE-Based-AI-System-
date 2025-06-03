@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  transaction-cost-ai:
+    build:
+      context: .
+      # dockerfile: Dockerfile # Default name is fine
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount specific files/directories you want to persist or share with the host
+      - ./scenario_weights.json:/app/scenario_weights.json # Persist scenario weights
+      - ./outputs:/app/outputs # For run.log, report.md, output_summary.json
+                               # Your Python code should write to /app/outputs/
+      # - ./data:/app/data # Uncomment if you have an actual data directory
+    environment:
+      - PYTHONUNBUFFERED=1
+      # These will be picked up from a .env file in the same directory as this docker-compose.yml
+      # Ensure that .env file is in your .gitignore
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # Example for agent-specific models (if you define them in your top-level .env)
+      # - CONTEXT_EXTRACTOR_MODEL=${CONTEXT_EXTRACTOR_MODEL:-gpt-4o-mini}
+      # - SCENARIO_GENERATOR_MODEL=${SCENARIO_GENERATOR_MODEL:-gpt-4o-mini}
+      # - PROBABILITY_COLLECTOR_MODEL=${PROBABILITY_COLLECTOR_MODEL:-gpt-4o-mini}
+      # - TRANSACTION_LOGIC_MODEL=${TRANSACTION_LOGIC_MODEL:-gpt-4o-mini}
+      # - AGGREGATION_AGENT_MODEL=${AGGREGATION_AGENT_MODEL:-gpt-4o-mini}
+      # - EXPLANATION_AGENT_MODEL=${EXPLANATION_AGENT_MODEL:-gpt-4o-mini}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8501/_stcore/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s # Increased start period slightly, adjust as needed
