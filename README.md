@@ -1,4 +1,7 @@
-# 🤖 Strategic Decision Advisor: Make, Buy, or Joint Venture (TCE-Based AI System)
+# Strategic Decision Advisor: Make, Buy, or Joint Venture (TCE-Based AI System)
+<p align="center">
+  <img src="images/Header_pic_01.png" width="400">
+</p
 
 This project implements an AI-powered decision-support system designed to help executives choose the optimal strategy for sourcing or developing a specific business capability. It evaluates options like **MAKE** (Internal Expansion/Build), **BUY** (Outsourcing/Market Purchase), or **JV** (Joint Venture/Strategic Alliance) by applying **Transaction Cost Economics (TCE)** principles (Coase, Williamson) — both of whom received the Nobel Prize in Economics and considering **scenario-based uncertainty**.
 
